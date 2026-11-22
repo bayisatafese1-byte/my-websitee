@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>bayisa coffee co. – Fresh Ethiopian Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8f4; --surface:#ffffff; --ink:#1b1f1d; --muted:#5a645f;
+  --brand:#14352a; --brand-ink:#ffffff; --gold:#e0a526; --line:#dfe3dc;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101613; --surface:#18211c; --ink:#eef1ec; --muted:#a3ada7;
+    --brand:#e0a526; --brand-ink:#14352a; --gold:#e0a526; --line:#2a3630; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101613; --surface:#18211c; --ink:#eef1ec; --muted:#a3ada7;
+  --brand:#e0a526; --brand-ink:#14352a; --gold:#e0a526; --line:#2a3630; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,7vw,4.4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700}
+h3{font-size:1.25rem;font-weight:700}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+section{padding:4.5rem 0}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.2rem;text-decoration:none}
+nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:600}
+nav a:hover{color:var(--gold)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:.45rem .8rem;font:inherit;font-weight:600;cursor:pointer}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  nav{position:absolute;left:0;right:0;top:64px;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:.5rem 1.25rem 1rem}
+  nav li a{display:block;padding:.8rem 0}
+}
+
+/* hero */
+.hero{background:var(--brand);color:var(--brand-ink);padding:5rem 0 5.5rem}
+.hero p{font-size:1.2rem;opacity:.92}
+.btn{display:inline-block;background:var(--gold);color:#14352a;font-weight:700;text-decoration:none;padding:.9rem 1.6rem;border-radius:999px;border:0;font-size:1rem;cursor:pointer;font-family:inherit}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor;margin-left:.6rem}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.hero .btn.ghost{margin-left:0}
+
+/* grids */
+.grid{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem}
+.card .price{font-weight:700;color:var(--gold);font-size:1.15rem}
+.swatch{height:90px;border-radius:10px;margin-bottom:1rem}
+.s1{background:linear-gradient(135deg,#3b2a20,#7a5236)}
+.s2{background:linear-gradient(135deg,#14352a,#2f6b52)}
+.s3{background:linear-gradient(135deg,#8a5a22,#e0a526)}
+
+/* about */
+.split{display:grid;gap:2.5rem;grid-template-columns:1fr 1fr;align-items:center}
+@media (max-width:760px){.split{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.stat{border-left:4px solid var(--gold);padding:.3rem 1rem}
+.stat b{display:block;font:800 2rem "Bricolage Grotesque",sans-serif}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+
+/* contact */
+label{display:block;font-weight:600;margin:1rem 0 .3rem}
+input,textarea{width:100%;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+textarea{min-height:130px;resize:vertical}
+.note{color:var(--muted);font-size:.95rem;margin-top:.8rem}
+
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" class="logo">bayisa coffee co.</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Coffee picked in the highlands, roasted this week.</h1>
+      <p>We buy directly from farmers in Oromia and deliver fresh roasted beans to homes, cafés and offices.</p>
+      <div class="actions">
+        <a class="btn" href="#products">See our coffee</a>
+        <a class="btn ghost" href="#contact">Order in bulk</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="wrap">
+      <h2>Our coffee</h2>
+      <p>Three roasts. All beans are sold whole or ground.</p>
+      <div class="grid">
+        <article class="card"><div class="swatch s1"></div><h3>Dark Roast</h3><p>Bold and smoky. Good for strong morning coffee.</p><span class="price">400 ETB / kg</span></article>
+        <article class="card"><div class="swatch s2"></div><h3>Medium Roast</h3><p>Balanced and smooth with a fruity finish.</p><span class="price">450 ETB / kg</span></article>
+        <article class="card"><div class="swatch s3"></div><h3>Light Roast</h3><p>Floral and bright. Best for filter brewing.</p><span class="price">500 ETB / kg</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="alt">
+    <div class="wrap split">
+      <div>
+        <h2>Why customers choose us</h2>
+        <p>We work with small farms and pay them fairly. Every bag has the roast date on it, so you always know how fresh it is.</p>
+        <p>Delivery is available in the city, and we ship to other regions on request.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>40+</b>partner farmers</div>
+        <div class="stat"><b>7 days</b>roast to door</div>
+        <div class="stat"><b>1,200</b>happy customers</div>
+        <div class="stat"><b>3</b>roast levels</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap split">
+      <div>
+        <h2>Place an order</h2>
+        <p>Tell us what you need and we will reply within one day.</p>
+        <p><strong>Phone:</strong> +251 906619022<br><strong>Email:</strong> bayisatafese1@gmail.com<br><strong>Address:</strong> Addis Ababa, Ethiopia</p>
+      </div>
+      <div>
+        <label for="name">Your name</label>
+        <input id="name" autocomplete="name">
+        <label for="email">Your email</label>
+        <input id="email" type="email" autocomplete="email">
+        <label for="msg">What would you like to order?</label>
+        <textarea id="msg"></textarea>
+        <p style="margin-top:1rem"><button class="btn" id="send" type="button">Send order request</button></p>
+        <p class="note" id="status" role="status"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Bayisa tafese Co. All rights reserved.</div>
+</footer>
+
+<script>
+  // Mobile menu
+  var btn = document.getElementById('menuBtn'), nav = document.getElementById('nav');
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
+  });
+
+  // Contact form: opens the visitor's email app with the message filled in.
+  // CHANGE this address to your own email.
+  var BUSINESS_EMAIL = 'bayisatafese1@gmail.com';
+  document.getElementById('send').addEventListener('click', function(){
+    var n = document.getElementById('name').value.trim();
+    var e = document.getElementById('email').value.trim();
+    var m = document.getElementById('msg').value.trim();
+    var s = document.getElementById('status');
+    if(!n || !e || !m){ s.textContent = 'Please fill in your name, email and order details.'; return; }
+    var body = 'Name: ' + n + '\nEmail: ' + e + '\n\n' + m;
+    window.location.href = 'mailto:' + BUSINESS_EMAIL + '?subject=' + encodeURIComponent('Order request from ' + n) + '&body=' + encodeURIComponent(body);
+    s.textContent = 'Your email app should open now. Press send there to finish.';
+  });
+</script>
+</body>
+</html>
